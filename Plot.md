@@ -1,0 +1,17 @@
+# Data and Explorative results
+To show that the critique review texts contains information of the corresponding video game experience, a survey is conducted with 50 core games, hand-picked popular titles, through Amazon Mechanical Turk (MTurk). With 350 participants, it collects 6,990 experiential resemblances in a triplet form—the relative similarity of game A to B and to C. These triplet-resemblances are built into a triplet embedding via the t-Distributed Stochastic Triplet Embedding (t-STE), where distances between each game preserve the similarity of the games’ experiences. 
+Based on where they locate in this embedding space, the core games are clustered into seven clusters by the Ward algorithm, each denoting a potential video game experiential genre.
+ 
+On the other hand, an expert review corpus is compiled from articles of three major game information websites, GameSpot, GamesRadar, and Polygon. The corpus includes 15,727 English reviews, covering 11,724 unique games in the last four decades, and amasses a total of 15-million words of analysis. It is then applied with the Word2Vec (W2V) algorithm to provide a 300-dimensional space that representing semantic similarities between words apropos of linguistic conventions of the general video gaming field.
+
+
+## Plot 1
+![GitHub Logo](/image/2-3_tsne_71.png)
+
+A simple Neural Net (MLP) is applied, using the game reviews of the 15k games to predict their identities of the seven experience genres generated from the clustering on the survey data.
+The result is projected with t-Distributed Stochastic Neighbor Embedding (t-SNE) as shown in the plot. From the geographical separation of the colors, we gain superficial insights into the quality of using the review texts in describing the product experiences. The observations’ projected locations successfully capture the genre structure represented by the colors, and the randomly selected games (tagged in the plot) are generally distributed according to their experience similarity. For example, LIMBO and Deponia both describe an abandoned, demolished world; Anno 2070, Prison Architect, and Skylanders Imaginators all stress on the creativity element. These patterns are not perfect, but they indicate the potential of extracting the product experience features from the review text data--what this project intends to achieve.
+
+## Plot 2
+https://chihyuchiang.shinyapps.io/game_experiential_topic_comparison_shiny/
+
+Once the features are identified, they can be presented visually and interactively to help customers find the games providing similar experiences of the games they like, and to help businesses explore similar products on the market, facilitating their product design and development. Moreover, it is possible to acquire the similarities between the feature vectors of each game, denoting the experience similarities between the game items. This similarity information then can be used in product recommendation for businesses selling multiple products, such as Amazon, when it recommends books or videos to a customer based on his/her purchasing/preference history of other books. (Note, the app is meant to be a demonstration of an interactive presentation of experience features. The features presented in the app is not the same as the clusters defined in Plot 1.)
